@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSearchCockTails } from "../redux/features/cocktailSlice";
 
 const HeaderComp = () => {
+  const { cart } = useSelector((state) => state.app);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,7 +26,7 @@ const HeaderComp = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
@@ -30,6 +35,20 @@ const HeaderComp = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/">
                   About
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                  <div>
+                    <AiOutlineShoppingCart />
+                    <span>{cart.length}</span>
+                  </div>
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">
+                  Search
                 </Link>
               </li>
             </ul>

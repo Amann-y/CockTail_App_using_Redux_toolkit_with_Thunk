@@ -3,3 +3,13 @@
   border-radius: 10px;
   box-shadow: 5px 5px 2px gray;
 }
+
+.single-item-cart-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.my-img {
+  width: 100%;
+  height: 250px;
+}

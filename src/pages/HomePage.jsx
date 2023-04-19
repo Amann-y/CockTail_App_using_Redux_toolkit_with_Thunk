@@ -14,14 +14,26 @@ const HomePage = () => {
   if (loading) {
     return (
       <div className="container-fluid mt-5">
-        <div class="d-flex justify-content-center">
-          <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       </div>
     );
   }
+
+  // if (!cocktails) {
+  //   return (
+  //     <div className="container-fluid mt-5">
+  //       <div className="d-flex justify-content-center">
+  //         <div className="spinner-border" role="status">
+  //           <span className="visually-hidden">No Cocktail Found </span>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
@@ -30,7 +42,7 @@ const HomePage = () => {
           {cocktails &&
             cocktails.map((ele, ind) => {
               return (
-                <div className="col-md-4">
+                <div className="col-md-4" key={ind}>
                   <img
                     className="img-fluid"
                     src={ele.strDrinkThumb}
